@@ -34,7 +34,6 @@
         android:layout_gravity="start"
         android:layout_height="match_parent"
         android:layout_width="200dp"
-        app:headerLayout="@layout/header"
         app:menu="@menu/mainmenu"
         tools:ignore="MissingConstraints" />
 
