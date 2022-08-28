@@ -11,14 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Verses extends AppCompatActivity {
-TextView e;
 ListView versesShowList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verses);
 
-        e=findViewById(R.id.v);
         versesShowList=findViewById(R.id.versesShowList);
 
 

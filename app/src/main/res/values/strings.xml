@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Noorehuda</string>
+    <string name="open">DrawerOpen</string>
+    <string name="close">DrawerClose</string>
 </resources>

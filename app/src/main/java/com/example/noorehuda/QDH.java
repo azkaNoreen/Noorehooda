@@ -299,7 +299,7 @@ public class QDH {
             "Tabarakallazi",
             "Amma Yatasa'aloon",
     };
-    public String[] ParahName = {"الم ",
+        public String[] ParahName = {"الم ",
             "سیقول ",
             "تلک الرسل ",
             "لن تنالوالبر",

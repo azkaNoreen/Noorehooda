@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/surahIndex"
+            android:title="Surah Index" />
+
+        <item
+            android:id="@+id/paraIndex"
+            android:title="Para Index" />
+
+    </group>
+
+
+    <item android:title="Translation"
+>
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/EnglishTeanslation"
+                    android:icon="@drawable/ic_baseline_translate_24"
+                    android:title="English Translation" />
+                <item
+                    android:id="@+id/UrduTeanslation"
+                    android:icon="@drawable/ic_baseline_translate_24"
+                    android:title="Urdu Translation" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Find us">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/web"
+                    android:icon="@drawable/ic_baseline_web_24"
+                    android:title="Website" />
+                <item
+                    android:id="@+id/Quran"
+                    android:icon="@drawable/ic_baseline_book_24"
+                    android:title="Quran" />
+            </group>
+        </menu>
+    </item>
+</menu>
