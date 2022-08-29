@@ -12,6 +12,7 @@ public class DBAccess {
     private SQLiteDatabase sqLiteDatabase;
     private static DBAccess instance;
     Cursor c=null;
+    private QDH qdh=new QDH();
 
     private DBAccess(Context context){
         this.sqLiteOpenHelper=new DBOpenHelper(context);
@@ -32,24 +33,7 @@ public class DBAccess {
        }
 
     }
-//    public ArrayList<String> getSurahnTrans() {
-//
-//        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
-//
-//        Cursor cursorCourses = db.rawQuery("SELECT * FROM tayah" , null);
-//
-//        ArrayList<String> todoArrayList = new ArrayList<>();
-//
-//        // moving our cursor to first position.
-//        if (cursorCourses.moveToFirst()) {
-//            do {
-//
-//                todoArrayList.add(cursorCourses.getString(4));
-//            } while (cursorCourses.moveToNext());
-//        }
-//        cursorCourses.close();
-//        return todoArrayList;
-//    }
+
     public ArrayList<PairString> getSurahAyahs(int Surah_no)
     {
                 SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
@@ -82,6 +66,35 @@ public class DBAccess {
         }
         return SurahAyahs;
     }
+    public int getSurahID(String Surah)
+    {
+//        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
+//
+//        c=db.rawQuery("Select SurahID from tsurah where SurahNameE = "+Surah,null);
+//        int Id=0;
+//        while(c.moveToNext()){
+//            Id=c.getInt(1);
+//        }
+//        return Id;
+        return qdh.getSurahID(Surah);
+    }
+    public ArrayList<PairString> searchSurah(String Surah)
+    {
+        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
+        int pos=qdh.getSurahID(Surah)+1;
+
+        ArrayList<PairString> SurahAyahs=getSurahAyahs(pos);
+        return SurahAyahs;
+    }
+    public ArrayList<PairString> searchParah(String Parah)
+    {
+        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
+        int pos=qdh.getParahID(Parah)+1;
+
+        ArrayList<PairString> SurahAyahs=getParahAyahs(pos);
+        return SurahAyahs;
+    }
+
 
 }
 

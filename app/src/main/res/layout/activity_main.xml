@@ -21,7 +21,21 @@
             app:title="Navigation Drawer Demo"
             app:titleTextColor="@color/cardview_light_background" />
 
-
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Search by Surah"
+    android:id="@+id/ssurah">
+</EditText>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/ss"></Button>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/show"></TextView>
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

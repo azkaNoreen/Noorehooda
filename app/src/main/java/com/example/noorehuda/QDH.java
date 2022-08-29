@@ -1,5 +1,6 @@
 package com.example.noorehuda;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -565,6 +566,27 @@ public class QDH {
     public int getSurahVerses(int surahNumber) {
         return surahAyatCount[surahNumber];
     }
+    public int getSurahID(String surah) {
+        int index = -1;
+        for (int i=0;i<englishSurahNames.length;i++) {
+            if (englishSurahNames[i].equals(surah)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+    public int getParahID(String parah) {
+        int index = -1;
+        for (int i=0;i<englishParahName.length;i++) {
+            if (englishParahName[i].equals(parah)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
 
     public List<String> GetSurahNames() {
         List<String> list = null;

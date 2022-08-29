@@ -13,9 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -24,6 +27,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ListView list;
+    EditText ssurah;
+    TextView show;
+    Button ss;
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -44,8 +50,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         list = findViewById(R.id.mylist);
+        ssurah = findViewById(R.id.ssurah);
+        ss = findViewById(R.id.ss);
+        show = findViewById(R.id.show);
+
+
+        ss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, SearchedVerses.class);
+                in.putExtra("SurahName",ssurah.getText().toString() );
+                startActivity(in);
+            }
+        });
+
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         navigationView = findViewById(R.id.nav_view);
@@ -75,24 +95,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.surahIndex:
-//                        Intent intent = new Intent(MainActivity.this, BookActivity.class);
-//                        startActivity(intent);
-                        //drawerLayout.closeDrawer(GravityCompat.START);
-
-                        ArrayAdapter as = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, tran?englishSurahNames:urduSurahNames);
-
-                        list.setAdapter(as);
-
-                        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                Intent in = new Intent(MainActivity.this, Verses.class);
-                                in.putExtra("pos", position+1);
+                                Intent in = new Intent(MainActivity.this, Base.class);
                                 in.putExtra("Type", "Surah");
                                 in.putExtra("Tran", tran);
                                 startActivity(in);
-                            }
-                        });
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
