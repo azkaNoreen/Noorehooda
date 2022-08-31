@@ -11,23 +11,6 @@
 
     </group>
 
-
-    <item android:title="Translation"
->
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/EnglishTeanslation"
-                    android:icon="@drawable/ic_baseline_translate_24"
-                    android:title="English Translation" />
-                <item
-                    android:id="@+id/UrduTeanslation"
-                    android:icon="@drawable/ic_baseline_translate_24"
-                    android:title="Urdu Translation" />
-            </group>
-        </menu>
-    </item>
-
     <item android:title="Find us">
         <menu>
             <group android:checkableBehavior="single">

@@ -36,7 +36,7 @@ public class DBAccess {
 
     public ArrayList<PairString> getSurahAyahs(int Surah_no)
     {
-                SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
+        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
 
         c=db.rawQuery("Select ArabicText,FatehMuhammadJalandhri,DrMohsinKhan from tayah where SuraID = "+Surah_no+"",new String[]{});
         ArrayList<PairString> SurahAyahs=new ArrayList<>();
@@ -54,7 +54,7 @@ public class DBAccess {
     {
         SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
 
-        c=db.rawQuery("Select ArabicText,FatehMuhammadJalandhri,DrMohsinKhan from tayah where ParaID = "+Parah_no+"",new String[]{});
+        c=db.rawQuery("Select ArabicText,FatehMuhammadJalandhri,DrMohsinKhan from tayah where ParaID = "+Parah_no+" ORDER BY AyaID,SuraID,AyaNo",new String[]{});
         ArrayList<PairString> SurahAyahs=new ArrayList<>();
         PairString ayahs;
         while(c.moveToNext()){
@@ -65,18 +65,6 @@ public class DBAccess {
             SurahAyahs.add(ayahs);
         }
         return SurahAyahs;
-    }
-    public int getSurahID(String Surah)
-    {
-//        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
-//
-//        c=db.rawQuery("Select SurahID from tsurah where SurahNameE = "+Surah,null);
-//        int Id=0;
-//        while(c.moveToNext()){
-//            Id=c.getInt(1);
-//        }
-//        return Id;
-        return qdh.getSurahID(Surah);
     }
     public ArrayList<PairString> searchSurah(String Surah)
     {

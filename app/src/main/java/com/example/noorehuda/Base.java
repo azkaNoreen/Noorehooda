@@ -12,38 +12,49 @@ import android.widget.ListView;
 public class Base extends AppCompatActivity {
     ListView list;
     QDH qdh = new QDH();
-    QuranArabicText quranArabicText = new QuranArabicText();
-    String[] QuranArabicText = quranArabicText.QuranArabicText;
-    int[] SSP = qdh.SSP;
-    int[] PSP = qdh.PSP;
     String[] englishSurahNames = qdh.englishSurahNames;
     String[] ParahName = qdh.ParahName;
-    String[] EnglishParahName=qdh.englishParahName;
-    String[] urduSurahNames =qdh.urduSurahNames;
+    String[] EnglishParahName = qdh.englishParahName;
+    String[] urduSurahNames = qdh.urduSurahNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-        list=findViewById(R.id.mylist);
+        list = findViewById(R.id.mylist);
 
-        String type=getIntent().getStringExtra("Type");
-        Boolean tran=getIntent().getBooleanExtra("Tran",false);
+        String type = getIntent().getStringExtra("Type");
+        Boolean tran = getIntent().getBooleanExtra("Tran", false);
 
+        if (type.equals("Surah")) {
+            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, tran ? englishSurahNames : urduSurahNames);
+            list.setAdapter(as);
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent in = new Intent(Base.this, Verses.class);
+                    in.putExtra("pos", position + 1);
+                    in.putExtra("Type", "Surah");
+                    in.putExtra("Tran", tran);
+                    startActivity(in);
+                }
+            });
+        } else {
+            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, tran ? EnglishParahName : ParahName);
 
-        ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, tran?englishSurahNames:urduSurahNames);
+            list.setAdapter(as);
 
-        list.setAdapter(as);
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent in = new Intent(Base.this, Verses.class);
+                    in.putExtra("pos", position + 1);
+                    in.putExtra("Type", "Parah");
+                    in.putExtra("Tran", tran);
+                    startActivity(in);
+                }
+            });
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent in = new Intent(Base.this, Verses.class);
-                in.putExtra("pos", position+1);
-                in.putExtra("Type", "Surah");
-                in.putExtra("Tran", tran);
-                startActivity(in);
-            }
-        });
+        }
     }
 }

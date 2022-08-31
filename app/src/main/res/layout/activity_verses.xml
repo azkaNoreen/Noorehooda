@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Verses">
-
-    <ListView
+    tools:context=".Verses"
+    android:id="@+id/drawer"
+    tools:openDrawer="start">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/versesShowList"
-        ></ListView>
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        app:title="Verses"
+        app:titleTextColor="@color/white" />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/versesShowList"
+            ></ListView>
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_gravity="start"
+        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        app:menu="@menu/tranmenu"
+        tools:ignore="MissingConstraints"
+        app:headerLayout="@layout/tranheader"/>
 
 
-</RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

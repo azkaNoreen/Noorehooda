@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noorehuda">
         <activity
-            android:name=".SearchedVerses"
-            android:exported="false" />
-        <activity
             android:name=".Base"
             android:exported="false" />
         <activity

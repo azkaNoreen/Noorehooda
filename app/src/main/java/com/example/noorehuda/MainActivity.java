@@ -27,9 +27,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ListView list;
-    EditText ssurah;
-    TextView show;
-    Button ss;
+    EditText ssurah,sparah;
+    Button ss,sp,si,pi;
+
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -37,15 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean tran;
 
-    QDH qdh = new QDH();
-    QuranArabicText quranArabicText = new QuranArabicText();
-    String[] QuranArabicText = quranArabicText.QuranArabicText;
-    int[] SSP = qdh.SSP;
-    int[] PSP = qdh.PSP;
-    String[] englishSurahNames = qdh.englishSurahNames;
-    String[] ParahName = qdh.ParahName;
-    String[] EnglishParahName=qdh.englishParahName;
-    String[] urduSurahNames =qdh.urduSurahNames;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,18 +44,47 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.mylist);
         ssurah = findViewById(R.id.ssurah);
         ss = findViewById(R.id.ss);
-        show = findViewById(R.id.show);
+        sparah = findViewById(R.id.sparah);
+        sp = findViewById(R.id.sp);
+        si = findViewById(R.id.si);
+        pi = findViewById(R.id.pi);
 
-
-        ss.setOnClickListener(new View.OnClickListener() {
+        si.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(MainActivity.this, SearchedVerses.class);
-                in.putExtra("SurahName",ssurah.getText().toString() );
+                Intent in = new Intent(MainActivity.this, Base.class);
+                in.putExtra("Type", "Surah");
+                in.putExtra("Tran", tran);
                 startActivity(in);
             }
         });
-
+        pi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Base.class);
+                intent.putExtra("Type", "Parah");
+                intent.putExtra("Tran", tran);
+                startActivity(intent);
+            }
+        });
+        ss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, Verses.class);
+                in.putExtra("Name",ssurah.getText().toString() );
+                in.putExtra("Type","Surah");
+                startActivity(in);
+            }
+        });
+        sp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, Verses.class);
+                in.putExtra("Name",sparah.getText().toString() );
+                in.putExtra("Type","Parah");
+                startActivity(in);
+            }
+        });
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -73,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         View headerView = navigationView.inflateHeaderView(R.layout.header);
         Switch sw=headerView.findViewById(R.id.tran);
-        tran=true;
+        tran=true;  //English
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -103,73 +123,20 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.paraIndex:
-                        ArrayAdapter ad = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1,  tran?EnglishParahName:ParahName);
-                        list.setAdapter(ad);
-
-                        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                Intent in = new Intent(MainActivity.this, Verses.class);
-                                in.putExtra("pos", position+1);
-                                in.putExtra("Type", "Parah");
-                                in.putExtra("Tran", tran);
-                                startActivity(in);
-
-                                startActivity(in);
-                            }
-                        });
-                        drawerLayout.closeDrawer(GravityCompat.START);
-
-                        break;
-
-                    case R.id.EnglishTeanslation:
-                        Toast.makeText(getApplicationContext(), "EnglishTeanslation", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this, Base.class);
+                        intent.putExtra("Type", "Parah");
+                        intent.putExtra("Tran", tran);
+                        startActivity(intent);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-
-                    case R.id.UrduTeanslation:
-                        Toast.makeText(getApplicationContext(), "UrduTeanslation", Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
                     case R.id.web:
                         Toast.makeText(getApplicationContext(), "Our Website", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }
-
                 return true;
             }
         });
     }
 
-    ArrayList<String> getSurahVerses(int position) {
-        int s = SSP[position];
-        int e= (position==SSP.length-1)?QuranArabicText.length+1:SSP[position + 1];
-        ArrayList<String> verses = new ArrayList<String>();
-        for (int i = s; i < e; i++) {
-            verses.add(QuranArabicText[i - 1]);
-        }
-        return verses;
-    }
-    ArrayList<String> getParaVerses(int position) {
-        int s = PSP[position];
-        int e= (position==PSP.length-1)?QuranArabicText.length+1:PSP[position + 1];
-        ArrayList<String> verses = new ArrayList<String>();
-        for (int i = s; i < e; i++) {
-            verses.add(QuranArabicText[i - 1]);
-        }
-        return verses;
-    }
-//
-//    @Override
-//    public void onBackPressed() {
-//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//            drawerLayout.closeDrawer(GravityCompat.START);
-//            Toast.makeText(getApplicationContext(), "Start", Toast.LENGTH_LONG).show();
-//
-//        } else {
-//            Toast.makeText(getApplicationContext(), "End", Toast.LENGTH_LONG).show();
-//        }
-//    }
 }
