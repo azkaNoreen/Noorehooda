@@ -24,10 +24,10 @@ public class Base extends AppCompatActivity {
         list = findViewById(R.id.mylist);
 
         String type = getIntent().getStringExtra("Type");
-        Boolean tran = getIntent().getBooleanExtra("Tran", false);
+//        Boolean tran = getIntent().getBooleanExtra("Tran", false);
 
         if (type.equals("Surah")) {
-            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, tran ? englishSurahNames : urduSurahNames);
+            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1,englishSurahNames);
             list.setAdapter(as);
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -35,12 +35,12 @@ public class Base extends AppCompatActivity {
                     Intent in = new Intent(Base.this, Verses.class);
                     in.putExtra("pos", position + 1);
                     in.putExtra("Type", "Surah");
-                    in.putExtra("Tran", tran);
+//                    in.putExtra("Tran", tran);
                     startActivity(in);
                 }
             });
         } else {
-            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, tran ? EnglishParahName : ParahName);
+            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, EnglishParahName);
 
             list.setAdapter(as);
 
@@ -50,7 +50,7 @@ public class Base extends AppCompatActivity {
                     Intent in = new Intent(Base.this, Verses.class);
                     in.putExtra("pos", position + 1);
                     in.putExtra("Type", "Parah");
-                    in.putExtra("Tran", tran);
+//                    in.putExtra("Tran", tran);
                     startActivity(in);
                 }
             });

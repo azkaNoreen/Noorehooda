@@ -47,7 +47,8 @@ public class Verses extends AppCompatActivity {
         String type = getIntent().getStringExtra("Type");
         String Name = getIntent().getStringExtra("Name");
 
-        if (pos < 0) {
+        if (pos < 0)  //its search results
+        {
             if (type.equals("Surah")) {
                 int position = qdh.getSurahID(Name) + 1;
                 ArrayList<PairString> SurahVerses = dbAccess.getSurahAyahs(position);

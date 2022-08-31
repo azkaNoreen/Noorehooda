@@ -34,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
-
-    Boolean tran;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in = new Intent(MainActivity.this, Base.class);
                 in.putExtra("Type", "Surah");
-                in.putExtra("Tran", tran);
+//                in.putExtra("Tran", tran);
                 startActivity(in);
             }
         });
@@ -63,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Base.class);
                 intent.putExtra("Type", "Parah");
-                intent.putExtra("Tran", tran);
+//                intent.putExtra("Tran", tran);
                 startActivity(intent);
             }
         });
@@ -91,20 +89,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_view);
         drawerLayout = findViewById(R.id.drawer);
 
-        View headerView = navigationView.inflateHeaderView(R.layout.header);
-        Switch sw=headerView.findViewById(R.id.tran);
-        tran=true;  //English
-        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    tran=false;
-                }
-                else{
-                    tran=true;
-                }
-            }
-        });
+//        View headerView = navigationView.inflateHeaderView(R.layout.header);
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
@@ -117,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.surahIndex:
                                 Intent in = new Intent(MainActivity.this, Base.class);
                                 in.putExtra("Type", "Surah");
-                                in.putExtra("Tran", tran);
+//                                in.putExtra("Tran", tran);
                                 startActivity(in);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -125,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.paraIndex:
                         Intent intent = new Intent(MainActivity.this, Base.class);
                         intent.putExtra("Type", "Parah");
-                        intent.putExtra("Tran", tran);
+//                        intent.putExtra("Tran", tran);
                         startActivity(intent);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;

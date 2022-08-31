@@ -109,6 +109,7 @@
         android:layout_height="match_parent"
         android:layout_width="200dp"
         app:menu="@menu/mainmenu"
+        app:headerLayout="@layout/header"
         tools:ignore="MissingConstraints" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
