@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.noorehuda.assignment2.VerseAndTranslation;
+
 import java.util.ArrayList;
 
 public class DBAccess {
@@ -49,6 +51,36 @@ public class DBAccess {
             SurahAyahs.add(ayahs);
         }
         return SurahAyahs;
+    }
+    public ArrayList<VerseAndTranslation> getSurahAyahs(int Surah_no,String TranslatorName)
+    {
+        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
+
+        c=db.rawQuery("Select ArabicText,"+TranslatorName+" from tayah where SuraID = "+Surah_no+"",new String[]{});
+        ArrayList<VerseAndTranslation> SurahAyahs=new ArrayList<>();
+        VerseAndTranslation ayahs;
+        while(c.moveToNext()){
+            String ayah=c.getString(0);
+            String Translation=c.getString(1);
+            ayahs=new VerseAndTranslation(ayah,Translation);
+            SurahAyahs.add(ayahs);
+        }
+        return SurahAyahs;
+    }
+    public ArrayList<VerseAndTranslation> getParahAyahs(int Parah_no,String TranslatorName)
+    {
+        SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
+
+        c=db.rawQuery("Select ArabicText,"+TranslatorName+" from tayah where ParaID = "+Parah_no+" ORDER BY AyaID,SuraID,AyaNo",new String[]{});
+        ArrayList<VerseAndTranslation> ParahAyahs=new ArrayList<>();
+        VerseAndTranslation ayahs;
+        while(c.moveToNext()){
+            String ayah=c.getString(0);
+            String Translation=c.getString(1);
+            ayahs=new VerseAndTranslation(ayah,Translation);
+            ParahAyahs.add(ayahs);
+        }
+        return ParahAyahs;
     }
     public ArrayList<PairString> getParahAyahs(int Parah_no)
     {

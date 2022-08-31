@@ -78,24 +78,24 @@ public class Verses extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.TranslatorName:
-                        Toast.makeText(getApplicationContext(), "Teanslator1", Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.TranslatorName2:
-                        Toast.makeText(getApplicationContext(), "Teanslator27", Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                }
-
-                return true;
-            }
-        });
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//                switch (menuItem.getItemId()) {
+//                    case R.id.TranslatorName:
+//                        Toast.makeText(getApplicationContext(), "Teanslator1", Toast.LENGTH_LONG).show();
+//                        drawerLayout.closeDrawer(GravityCompat.START);
+//                        break;
+//
+//                    case R.id.TranslatorName2:
+//                        Toast.makeText(getApplicationContext(), "Teanslator27", Toast.LENGTH_LONG).show();
+//                        drawerLayout.closeDrawer(GravityCompat.START);
+//                        break;
+//                }
+//
+//                return true;
+//            }
+//        });
     }
 
 

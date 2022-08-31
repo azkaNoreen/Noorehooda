@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.noorehuda.R;
+import com.example.noorehuda.assignment2.VersesTranslated;
 
 public class Base extends AppCompatActivity {
     ListView list;
@@ -34,7 +35,7 @@ public class Base extends AppCompatActivity {
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent in = new Intent(Base.this, Verses.class);
+                    Intent in = new Intent(Base.this, VersesTranslated.class);
                     in.putExtra("pos", position + 1);
                     in.putExtra("Type", "Surah");
 //                    in.putExtra("Tran", tran);
@@ -49,7 +50,7 @@ public class Base extends AppCompatActivity {
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent in = new Intent(Base.this, Verses.class);
+                    Intent in = new Intent(Base.this, VersesTranslated.class);
                     in.putExtra("pos", position + 1);
                     in.putExtra("Type", "Parah");
 //                    in.putExtra("Tran", tran);

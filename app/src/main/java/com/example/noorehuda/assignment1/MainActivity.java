@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.noorehuda.R;
+import com.example.noorehuda.assignment2.VersesTranslated;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         ss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(MainActivity.this, Verses.class);
+                Intent in = new Intent(MainActivity.this, VersesTranslated.class);
                 in.putExtra("Name",ssurah.getText().toString() );
                 in.putExtra("Type","Surah");
                 startActivity(in);
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         sp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(MainActivity.this, Verses.class);
+                Intent in = new Intent(MainActivity.this, VersesTranslated.class);
                 in.putExtra("Name",sparah.getText().toString() );
                 in.putExtra("Type","Parah");
                 startActivity(in);

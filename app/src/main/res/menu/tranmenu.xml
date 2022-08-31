@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/TranslatorName"
-            android:title="TranslatorName" />
 
-        <item
-            android:id="@+id/TranslatorName2"
-            android:title="TranslatorName2" />
+    <item android:title="English Translation"
+        android:id="@+id/engtran"
+        >
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/DrMohsinKhan"
+                    android:title="Dr Mohsin Khan" />
+                <item
+                    android:id="@+id/MuftiTaqiUsmani"
+                    android:title="Mufti Taqi Usmani" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Urdu Translation">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/MehmoodulHassan"
+                    android:title="Mehmoodul Hassan" />
+                <item
+                    android:id="@+id/FatehMuhammadJalandhri"
 
-    </group>
+                    android:title="Fateh MuhammadJ alandhri" />
+            </group>
+        </menu>
+    </item>
 
 
 </menu>
