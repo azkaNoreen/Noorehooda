@@ -1,4 +1,4 @@
-package com.example.noorehuda;
+package com.example.noorehuda.assignment1;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,8 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.noorehuda.R;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class myAdapter extends ArrayAdapter<PairString> {
     Button bt;

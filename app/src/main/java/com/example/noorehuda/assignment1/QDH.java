@@ -1,4 +1,4 @@
-package com.example.noorehuda;
+package com.example.noorehuda.assignment1;
 
 import java.util.Arrays;
 import java.util.List;

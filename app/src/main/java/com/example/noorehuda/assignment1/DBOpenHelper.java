@@ -1,4 +1,4 @@
-package com.example.noorehuda;
+package com.example.noorehuda.assignment1;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

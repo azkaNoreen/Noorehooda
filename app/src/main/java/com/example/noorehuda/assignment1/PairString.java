@@ -1,4 +1,4 @@
-package com.example.noorehuda;
+package com.example.noorehuda.assignment1;
 
 public class PairString {
     public String Verse;
