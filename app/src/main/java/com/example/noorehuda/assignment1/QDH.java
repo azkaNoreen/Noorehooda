@@ -1,5 +1,8 @@
 package com.example.noorehuda.assignment1;
 
+import com.example.noorehuda.assignment2.VerseAndTranslation;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -587,11 +590,20 @@ public class QDH {
         return index;
     }
 
-
-    public List<String> GetSurahNames() {
-        List<String> list = null;
-        for (int index = 0; index < urduSurahNames.length; ++index)
-            list.add(urduSurahNames[index]);
+//    public List<String> GetSurahNames() {
+//        List<String> list = null;
+//        for (int index = 0; index < urduSurahNames.length; ++index)
+//            list.add(urduSurahNames[index]);
+//        return list;
+//    }
+    public ArrayList<VerseAndTranslation> GetSurahNames() {
+        ArrayList<VerseAndTranslation> list = null;
+        String uname,ename;
+        for (int index = 0; index < urduSurahNames.length; ++index) {
+            uname = urduSurahNames[index];
+            ename = englishSurahNames[index];
+            list.add(new VerseAndTranslation(uname,ename));
+        }
         return list;
     }
 
