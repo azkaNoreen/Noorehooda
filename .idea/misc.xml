@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/drawable/ic_baseline_accessibility_24.xml" value="0.1405" />
+        <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/drawable/ic_baseline_book_24.xml" value="0.1405" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1405" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/drawable/ic_baseline_translate_24.xml" value="0.1405" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/drawable/ic_baseline_web_24.xml" value="0.1405" />
+        <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/drawable/ic_floral_flourish_frame_23.xml" value="0.1" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/layout/activity_base.xml" value="0.20416666666666666" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/layout/activity_searched_verses.xml" value="0.20416666666666666" />
@@ -19,6 +22,7 @@
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/layout/tranheader.xml" value="0.20416666666666666" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/menu/mainmenu.xml" value="0.20416666666666666" />
         <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/menu/tranmenu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Semester6/MC/Noorehuda/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

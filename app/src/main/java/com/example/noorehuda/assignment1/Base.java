@@ -1,6 +1,7 @@
 package com.example.noorehuda.assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,8 +50,11 @@ public class Base extends AppCompatActivity {
 //                }
 //            });
         } else {
-            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, EnglishParahName);
-
+//            ArrayAdapter as = new ArrayAdapter(Base.this, android.R.layout.simple_list_item_1, EnglishParahName);
+            ChapterRecyclerViewAdapter as = new ChapterRecyclerViewAdapter();
+            as.setData(qdh.GetParahNames());
+            list.setAdapter(as);
+            list.setLayoutManager(new LinearLayoutManager(this));
 //            list.setAdapter(as);
 //
 //            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -61,7 +65,7 @@ public class Base extends AppCompatActivity {
 //                    in.putExtra("Type", "Parah");
 //                    startActivity(in);
 //                }
-//            });
+//            })';
 
         }
     }

@@ -597,11 +597,21 @@ public class QDH {
 //        return list;
 //    }
     public ArrayList<VerseAndTranslation> GetSurahNames() {
-        ArrayList<VerseAndTranslation> list = null;
+        ArrayList<VerseAndTranslation> list = new ArrayList<VerseAndTranslation>() ;
         String uname,ename;
         for (int index = 0; index < urduSurahNames.length; ++index) {
             uname = urduSurahNames[index];
             ename = englishSurahNames[index];
+            list.add(new VerseAndTranslation(uname,ename));
+        }
+        return list;
+    }
+    public ArrayList<VerseAndTranslation> GetParahNames() {
+        ArrayList<VerseAndTranslation> list = new ArrayList<VerseAndTranslation>() ;
+        String uname,ename;
+        for (int index = 0; index < englishParahName.length; ++index) {
+            uname = ParahName[index];
+            ename = englishParahName[index];
             list.add(new VerseAndTranslation(uname,ename));
         }
         return list;
