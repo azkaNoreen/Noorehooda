@@ -1,5 +1,6 @@
 package com.example.noorehuda.assignment1;
 
+import com.example.noorehuda.assignment2.RVListChapters;
 import com.example.noorehuda.assignment2.VerseAndTranslation;
 
 import java.util.ArrayList;
@@ -596,23 +597,24 @@ public class QDH {
 //            list.add(urduSurahNames[index]);
 //        return list;
 //    }
-    public ArrayList<VerseAndTranslation> GetSurahNames() {
-        ArrayList<VerseAndTranslation> list = new ArrayList<VerseAndTranslation>() ;
+    public ArrayList<RVListChapters> GetSurahNames() {
+        ArrayList<RVListChapters> list = new ArrayList<RVListChapters>() ;
         String uname,ename;
+        int pos;
         for (int index = 0; index < urduSurahNames.length; ++index) {
             uname = urduSurahNames[index];
             ename = englishSurahNames[index];
-            list.add(new VerseAndTranslation(uname,ename));
+            list.add(new RVListChapters(uname,ename,index+1,"Surah"));
         }
         return list;
     }
-    public ArrayList<VerseAndTranslation> GetParahNames() {
-        ArrayList<VerseAndTranslation> list = new ArrayList<VerseAndTranslation>() ;
+    public ArrayList<RVListChapters> GetParahNames() {
+        ArrayList<RVListChapters> list = new ArrayList<RVListChapters>() ;
         String uname,ename;
         for (int index = 0; index < englishParahName.length; ++index) {
             uname = ParahName[index];
             ename = englishParahName[index];
-            list.add(new VerseAndTranslation(uname,ename));
+            list.add(new RVListChapters(uname,ename,index+1,"Parah"));
         }
         return list;
     }

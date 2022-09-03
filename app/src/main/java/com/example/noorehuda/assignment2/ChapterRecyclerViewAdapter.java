@@ -1,10 +1,12 @@
 package com.example.noorehuda.assignment2;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +16,13 @@ import com.example.noorehuda.R;
 import java.util.ArrayList;
 
 public class ChapterRecyclerViewAdapter extends RecyclerView.Adapter<ChapterRecyclerViewAdapter.MyVH> {
-    ArrayList<VerseAndTranslation> myList=new ArrayList<VerseAndTranslation>();
+    ArrayList<RVListChapters> myList=new ArrayList<RVListChapters>();
+    MyOnClickListener myOnClickListener;
+
+    public void setMyInterface(MyOnClickListener myInterface){
+        this.myOnClickListener=myInterface;
+    }
+
     @NonNull
     @Override
     public ChapterRecyclerViewAdapter.MyVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -24,18 +32,27 @@ public class ChapterRecyclerViewAdapter extends RecyclerView.Adapter<ChapterRecy
 
     @Override
     public void onBindViewHolder(@NonNull ChapterRecyclerViewAdapter.MyVH holder, int position) {
-        VerseAndTranslation st=myList.get(position);
+        RVListChapters st=myList.get(position);
         ChapterRecyclerViewAdapter.MyVH listViewHolder= (ChapterRecyclerViewAdapter.MyVH) holder;
 
-        listViewHolder.name.setText(st.getVerse());
-        listViewHolder.englishName.setText(st.getTranslation());
+        listViewHolder.name.setText(st.getName());
+        listViewHolder.englishName.setText(st.getEngName());
+        listViewHolder.number.setText(st.getPosition()+"");
+
+        listViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myOnClickListener.onCahpterClick(st);
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return myList.size();
     }
-    public void setData(ArrayList<VerseAndTranslation> myList){
+    public void setData(ArrayList<RVListChapters> myList){
         this.myList=myList;
         notifyDataSetChanged();
     }
@@ -44,13 +61,15 @@ public class ChapterRecyclerViewAdapter extends RecyclerView.Adapter<ChapterRecy
         TextView name;
         TextView englishName;
         ImageView imag;
+        TextView number;
 
         public MyVH(@NonNull View itemView) {
             super(itemView);
 
             name=itemView.findViewById(R.id.name);
             englishName=itemView.findViewById(R.id.englishName);
-//            imag=itemView.findViewById(R.drawable.ic_launcher_background);
+            number=itemView.findViewById(R.id.number);
+
 
         }
     }

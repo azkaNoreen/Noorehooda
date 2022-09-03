@@ -17,12 +17,33 @@
             android:orientation="horizontal"
             android:layout_gravity="center"
             >
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
-                android:id="@+id/imag"
-                android:src="@drawable/chapindexwhite"></ImageView>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/imag"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/chapindexwhite">
+
+                </ImageView>
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/jameel"
+                    android:textColor="@color/white"
+                    android:text="dskh"
+                    android:textSize="24sp"
+                    />
+            </RelativeLayout>
 
 <LinearLayout
     android:layout_width="match_parent"

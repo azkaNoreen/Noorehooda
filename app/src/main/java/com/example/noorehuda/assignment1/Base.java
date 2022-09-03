@@ -11,9 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.noorehuda.R;
 import com.example.noorehuda.assignment2.ChapterRecyclerViewAdapter;
+import com.example.noorehuda.assignment2.MyOnClickListener;
+import com.example.noorehuda.assignment2.RVListChapters;
 import com.example.noorehuda.assignment2.VersesTranslated;
 
 public class Base extends AppCompatActivity {
@@ -39,13 +42,23 @@ public class Base extends AppCompatActivity {
             as.setData(qdh.GetSurahNames());
             list.setAdapter(as);
             list.setLayoutManager(new LinearLayoutManager(this));
-//            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            as.setMyInterface(new MyOnClickListener() {
+                @Override
+                public void onCahpterClick(RVListChapters chapters) {
+                    Intent in = new Intent(Base.this, VersesTranslated.class);
+                    in.putExtra("pos", chapters.getPosition());
+                    in.putExtra("Type", chapters.getType());
+                    startActivity(in);
+                }
+            });
+//            list.addOnItemTouchListener(new RecyclerIt);
+
+//            list.setOnClickListener(new AdapterView.OnItemClickListener() {
 //                @Override
 //                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                    Intent in = new Intent(Base.this, VersesTranslated.class);
 //                    in.putExtra("pos", position + 1);
 //                    in.putExtra("Type", "Surah");
-////                    in.putExtra("Tran", tran);
 //                    startActivity(in);
 //                }
 //            });
@@ -55,6 +68,16 @@ public class Base extends AppCompatActivity {
             as.setData(qdh.GetParahNames());
             list.setAdapter(as);
             list.setLayoutManager(new LinearLayoutManager(this));
+
+            as.setMyInterface(new MyOnClickListener() {
+                @Override
+                public void onCahpterClick(RVListChapters chapters) {
+                    Intent in = new Intent(Base.this, VersesTranslated.class);
+                    in.putExtra("pos", chapters.getPosition());
+                    in.putExtra("Type", chapters.getType());
+                    startActivity(in);
+                }
+            });
 //            list.setAdapter(as);
 //
 //            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
