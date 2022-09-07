@@ -1,6 +1,6 @@
 package com.example.noorehuda.assignment2;
 
 public  interface MyOnClickListener {
-     void onCahpterClick(RVListChapters chapters);
+     void onChapterClick(RVListChapters chapters);
 
 }

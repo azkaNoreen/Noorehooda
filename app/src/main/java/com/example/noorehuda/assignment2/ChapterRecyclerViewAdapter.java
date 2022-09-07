@@ -1,12 +1,10 @@
 package com.example.noorehuda.assignment2;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,7 +40,7 @@ public class ChapterRecyclerViewAdapter extends RecyclerView.Adapter<ChapterRecy
         listViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myOnClickListener.onCahpterClick(st);
+                myOnClickListener.onChapterClick(st);
             }
         });
 

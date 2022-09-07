@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noorehuda">
         <activity
+            android:name=".assignment1.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".assignment2.VersesTranslated"
             android:exported="false" />
         <activity
@@ -19,7 +22,7 @@
             android:name=".assignment1.Verses"
             android:exported="false" />
         <activity
-            android:name=".assignment1.MainActivity"
+            android:name=".assignment2.SplashSc"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

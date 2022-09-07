@@ -44,7 +44,7 @@ public class Base extends AppCompatActivity {
             list.setLayoutManager(new LinearLayoutManager(this));
             as.setMyInterface(new MyOnClickListener() {
                 @Override
-                public void onCahpterClick(RVListChapters chapters) {
+                public void onChapterClick(RVListChapters chapters) {
                     Intent in = new Intent(Base.this, VersesTranslated.class);
                     in.putExtra("pos", chapters.getPosition());
                     in.putExtra("Type", chapters.getType());
@@ -71,7 +71,7 @@ public class Base extends AppCompatActivity {
 
             as.setMyInterface(new MyOnClickListener() {
                 @Override
-                public void onCahpterClick(RVListChapters chapters) {
+                public void onChapterClick(RVListChapters chapters) {
                     Intent in = new Intent(Base.this, VersesTranslated.class);
                     in.putExtra("pos", chapters.getPosition());
                     in.putExtra("Type", chapters.getType());
