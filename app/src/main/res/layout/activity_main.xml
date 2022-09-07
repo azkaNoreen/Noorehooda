@@ -19,7 +19,8 @@
             android:layout_height="wrap_content"
             android:background="@color/teal_700"
             app:title="Quran App"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white"
+            />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -28,12 +29,12 @@
     android:gravity="center"
     >
 
-<EditText
+<AutoCompleteTextView
     android:layout_width="230dp"
     android:layout_height="wrap_content"
     android:hint="Search by Surah"
     android:id="@+id/ssurah">
-</EditText>
+</AutoCompleteTextView>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,12 +50,12 @@
             android:gravity="center"
             >
 
-            <EditText
+            <AutoCompleteTextView
                 android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:hint="Search by Parah"
                 android:id="@+id/sparah">
-            </EditText>
+            </AutoCompleteTextView>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,7 +52,6 @@ public class VersesTranslated extends AppCompatActivity {
         positionFromIntent = getIntent().getIntExtra("pos", -1);
         type = getIntent().getStringExtra("Type");
         Name = getIntent().getStringExtra("Name");
-        ArrayList<PairString> SurahVerses=new ArrayList<PairString>();
 //        ArrayList<VerseAndTranslation> SurahVerseTr=new ArrayList<VerseAndTranslation>();
         translator="DrMohsinKhan";
         GetArrayAndInitRecycleView(SurahVerseAndTranslation, position,translator);
@@ -84,20 +84,17 @@ public class VersesTranslated extends AppCompatActivity {
                         translator="MuftiTaqiUsmani";
                         GetArrayAndInitRecycleView(SurahVerseAndTranslation, position,translator);
 
-//                        Toast.makeText(getApplicationContext(), "Teanslator27", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.MehmoodulHassan:
                         translator="MehmoodulHassan";
                         GetArrayAndInitRecycleView(SurahVerseAndTranslation, position,translator);
 
-                        Toast.makeText(getApplicationContext(), "Our Website", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.FatehMuhammadJalandhri:
                         translator="FatehMuhammadJalandhri";
                         GetArrayAndInitRecycleView(SurahVerseAndTranslation, position,translator);
-                        Toast.makeText(getApplicationContext(), "Our Website", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }
@@ -141,6 +138,7 @@ public class VersesTranslated extends AppCompatActivity {
 //        SurahVerseTr = dbAccess.getSurahAyahs(position,translator);
         MyRecyclerViewAdapter ad = new MyRecyclerViewAdapter();
         versesShowList.setLayoutManager(new LinearLayoutManager(this));
+
         ad.setData(SurahVerseTr);
         versesShowList.setAdapter(ad);
     }

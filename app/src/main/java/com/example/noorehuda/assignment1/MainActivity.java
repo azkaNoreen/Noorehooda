@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -22,22 +24,35 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
     ListView list;
-    EditText ssurah,sparah;
     Button ss,sp,si,pi;
+    AutoCompleteTextView ssurah,sparah;
+
 
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     ActionBarDrawerToggle toggle;
+    QDH qdh=new QDH();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         list = findViewById(R.id.mylist);
-        ssurah = findViewById(R.id.ssurah);
         ss = findViewById(R.id.ss);
         sparah = findViewById(R.id.sparah);
+        ArrayAdapter<String> adapterparah = new ArrayAdapter<String>
+                (this,android.R.layout.select_dialog_item, qdh.englishParahName);
+
+        sparah.setThreshold(2);
+        sparah.setAdapter(adapterparah);
+        ssurah = findViewById(R.id.ssurah);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this,android.R.layout.select_dialog_item, qdh.englishSurahNames);
+
+        ssurah.setThreshold(2);
+        ssurah.setAdapter(adapter);
+
         sp = findViewById(R.id.sp);
         si = findViewById(R.id.si);
         pi = findViewById(R.id.pi);

@@ -56,7 +56,7 @@ public class DBAccess {
     {
         SQLiteDatabase db = sqLiteOpenHelper.getReadableDatabase();
 
-        c=db.rawQuery("Select ArabicText,"+TranslatorName+" from tayah where SuraID = "+Surah_no+"",new String[]{});
+        c=db.rawQuery("Select ArabicText,"+TranslatorName+" from tayah where SuraID = "+Surah_no+" ORDER BY AyaID,SuraID,AyaNo",new String[]{});
         ArrayList<VerseAndTranslation> SurahAyahs=new ArrayList<>();
         VerseAndTranslation ayahs;
         while(c.moveToNext()){
