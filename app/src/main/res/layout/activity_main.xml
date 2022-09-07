@@ -93,15 +93,33 @@
                 ></Button>
         </LinearLayout>
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/show"></TextView>
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/mylist"
-></ListView>
+            android:layout_gravity="center"
+            >
+            <ImageView
+                android:id="@+id/imag"
+                android:layout_width="320dp"
+                android:layout_height="320dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/pngegg">
+
+            </ImageView>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:text="Asma-ul-Husna"
+                android:textSize="22sp"
+                android:textAlignment="center"
+                />
+        </RelativeLayout>
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

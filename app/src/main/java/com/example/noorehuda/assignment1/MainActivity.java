@@ -15,16 +15,18 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.noorehuda.R;
+import com.example.noorehuda.assignment2.AsmaUlHusna;
 import com.example.noorehuda.assignment2.VersesTranslated;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    ListView list;
     Button ss,sp,si,pi;
+    ImageView show;
     AutoCompleteTextView ssurah,sparah;
 
 
@@ -38,8 +40,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list = findViewById(R.id.mylist);
         ss = findViewById(R.id.ss);
+        sp = findViewById(R.id.sp);
+        si = findViewById(R.id.si);
+        pi = findViewById(R.id.pi);
+        show=findViewById(R.id.imag);
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, AsmaUlHusna.class);
+                startActivity(in);
+            }
+        });
+
         sparah = findViewById(R.id.sparah);
         ArrayAdapter<String> adapterparah = new ArrayAdapter<String>
                 (this,android.R.layout.select_dialog_item, qdh.englishParahName);
@@ -52,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
         ssurah.setThreshold(2);
         ssurah.setAdapter(adapter);
-
-        sp = findViewById(R.id.sp);
-        si = findViewById(R.id.si);
-        pi = findViewById(R.id.pi);
 
         si.setOnClickListener(new View.OnClickListener() {
             @Override
