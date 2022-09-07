@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <TextView
                 android:id="@+id/verse"
                 android:layout_width="match_parent"
@@ -35,7 +36,13 @@
                 android:layout_marginRight="12dp"
                 android:fontFamily="@font/jameel"
                 android:textColor="@color/white"></TextView>
-
+            <ImageView
+                android:id="@+id/shareit"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/ic_baseline_share_24"
+                ></ImageView>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
