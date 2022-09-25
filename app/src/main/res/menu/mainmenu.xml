@@ -4,13 +4,10 @@
         <item
             android:id="@+id/surahIndex"
             android:title="Surah Index" />
-
         <item
             android:id="@+id/paraIndex"
             android:title="Para Index" />
-
     </group>
-
     <item android:title="Find us">
         <menu>
             <group android:checkableBehavior="single">
